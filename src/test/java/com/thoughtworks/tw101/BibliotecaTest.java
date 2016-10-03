@@ -10,7 +10,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 /**
  * Created by tafarii on 9/27/16.
@@ -19,11 +18,13 @@ public class BibliotecaTest {
 
     private Biblioteca biblioteca;
     private List<Book> books;
+    private PrintStream printStream;
 
     @Before
     public void setUp() throws Exception {
         books = new ArrayList<>();
-        biblioteca = new Biblioteca(books);
+        printStream = mock(PrintStream.class);
+        biblioteca = new Biblioteca(books, printStream);
     }
 
     @Test

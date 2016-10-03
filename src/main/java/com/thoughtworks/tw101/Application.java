@@ -19,7 +19,6 @@ public class Application {
 
     public void start() {
         printStream.println("Welcome!");
-        menu.display();
         menu.performOption();
 
     }

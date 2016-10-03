@@ -26,36 +26,33 @@ public class Menu {
     }
 
     public void performOption() {
+        display();
+
         String choice = inputReader.getString();
 
-        while (choice != "q") {
+        while (!choice.equals( "q")) {
             //choice = getString(choice);
-            choice = processInput(choice);
+            processInput(choice);
+
+            display();
+
+            choice = inputReader.getString();
         }
+        printStream.println("Exiting application");
+
     }
 
 
-    private String processInput(String input){
-        display();
-
+    private void processInput(String input){
         Map<String, Option> options = new HashMap<>();
         options.put("1", new ListBooksOption(biblioteca));
         options.put("2", new CheckoutBooksOption(biblioteca, printStream, inputReader));
-        // options.put("q", new QuitOption());
+
         if (options.containsKey(input)) {
             options.get(input).run();
-        }
-
-
-        else if(input.equals("q")) {
-            printStream.println("Exiting application");
-            return "q";
         }
         else {
             printStream.println("Select a valid option!");
         }
-        return inputReader.getString();
-
     }
-
 }

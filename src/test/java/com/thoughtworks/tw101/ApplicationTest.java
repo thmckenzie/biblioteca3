@@ -34,7 +34,7 @@ public class ApplicationTest {
     @Test
     public void shouldDisplayMenuWhenStarting() throws Exception {
         application.start();
-        verify(menu).display();
+        verify(menu).performOption();
     }
 
 }

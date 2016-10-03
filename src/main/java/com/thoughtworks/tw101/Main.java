@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         PrintStream printStream = new PrintStream(System.out);
         List<Book> books = new ArrayList<>();
-        Biblioteca biblioteca = new Biblioteca(books);
+        Biblioteca biblioteca = new Biblioteca(books, printStream);
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         InputReader inputReader = new InputReader(bufferedReader);

@@ -71,7 +71,6 @@ public class MenuTest {
     @Test
     public void shouldDisplayCheckoutOptionWhenMenuIsDisplayed() throws Exception {
         when(inputReader.getString()).thenReturn("q");
-        menu.display();
         menu.performOption();
         verify(printStream).println("2: Checkout Books");
 
@@ -80,7 +79,6 @@ public class MenuTest {
     @Test
     public void shouldDisplayListOfBooksWhenCheckoutOptionIsSelected() throws Exception {
         when(inputReader.getString()).thenReturn("2", "1", "q");
-        menu.display();
         menu.performOption();
         verify(biblioteca).listBooks();
     }
